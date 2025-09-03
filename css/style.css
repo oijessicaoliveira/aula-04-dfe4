@@ -1,0 +1,185 @@
+/* 1) Variáveis de Cor e Ajustes Gerais */ /* Seção: define tokens de cor reutilizáveis e um ajuste global de box sizing */
+
+:root { /* Seletor do elemento raiz (html); ideal para variáveis CSS globais */
+  --cor-fundo: #f8f9fa; /* Cor de fundo clara e neutra para a página */
+  --cor-texto: #212529; /* Cor principal do texto (alto contraste com o fundo) */
+  --cor-texto-secundario: #6c757d; /* Tom mais suave para textos de menor hierarquia */
+  --cor-destaque: #6f42c1; /* Roxo de destaque para links, botões e foco */
+  --cor-borda-sutil: #dee2e6; /* Cinza claro para divisórias discretas */
+  --cor-fundo-caixa: #ffffff; /* Fundo branco para cartões/caixas sobre o fundo geral */
+}
+
+* { box-sizing: border-box; } /* Inclui bordas e paddings no cálculo de largura/altura; facilita layouts consistentes */
+
+/* 2) Base tipográfica */ /* Define escala tipográfica e aparência geral do texto */
+
+html { font-size: 100%; } /* Base de 100% (tipicamente 16px) para rems previsíveis e acessíveis */
+body {
+  margin: 0; /* Remove margens padrão do user agent para controle total do layout */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* Pilha de fontes do sistema: desempenho e legibilidade */
+  line-height: 1.7; /* Altura de linha confortável para leitura em tela */
+  color: var(--cor-texto); /* Usa a variável de cor primária do texto */
+  background: var(--cor-fundo); /* Aplica o fundo claro global */
+}
+
+/* 3) Utilitários */ /* Classes auxiliares para espaçamento, largura e cartões */
+
+.container { width: 800px; max-width: 100%; padding: 0 16px; margin: 0 auto; } /* Container central de até 800px, com respiro lateral e centralização */
+.mt-1 { margin-top: 8px; } /* Utilitário: margem superior pequena (8px) */
+.mt-2 { margin-top: 24px; } /* Utilitário: margem superior média (24px) */
+.texto-centro { text-align: center; } /* Centraliza conteúdo em linha (texto/inline) */
+.caixa {
+  padding: 20px 24px; /* Respiro interno confortável (vertical x horizontal) */
+  border: none; /* Sem borda visível (limpeza visual) */
+  border-radius: 8px; /* Cantos levemente arredondados (suavidade) */
+  background: var(--cor-fundo-caixa); /* Fundo branco para contraste com o fundo da página */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra sutil para dar sensação de elevação (card) */
+}
+
+/* 4) Links e foco (acessibilidade) */ /* Melhora a visibilidade dos links e o estado de foco para teclado */
+
+a { color: var(--cor-destaque); text-decoration: none; font-weight: 500; } /* Links roxos, sem sublinhado por padrão, peso médio para ênfase */
+a:hover { text-decoration: underline; } /* Sublinha no hover para reforçar que é clicável */
+a:focus {
+  outline: 2px solid var(--cor-destaque); /* Contorno visível ao navegar por teclado (requisito de acessibilidade) */
+  outline-offset: 2px; /* Afasta o contorno do elemento para melhor leitura */
+  border-radius: 4px; /* Suaviza cantos do contorno */
+}
+
+/* 5) Cabeçalho, navegação, rodapé */ /* Estruturas de topo e base da página */
+
+.header {
+  background: transparent; /* Sem cor sólida de fundo (usa a cor da página) */
+  padding: 24px 16px; /* Respiro interno no cabeçalho */
+  border-bottom: 1px solid var(--cor-borda-sutil); /* Linha inferior sutil para separar do conteúdo */
+  margin-bottom: 32px; /* Espaço após o cabeçalho */
+  text-align: center; /* Centraliza o h1 e o slogan */
+}
+.footer {
+  background: transparent; /* Rodapé sem cor sólida (leve) */
+  padding: 24px 16px; /* Respiro interno no rodapé */
+  border-top: 1px solid var(--cor-borda-sutil); /* Linha superior sutil para separar do corpo */
+  margin-top: 32px; /* Espaço antes do rodapé */
+  text-align: center; /* Centraliza conteúdo do rodapé */
+}
+.slogan { margin: 0; color: var(--cor-texto-secundario); font-style: normal; font-weight: 400; } /* Slogan compacto, tom suave e peso normal */
+
+/* Menu com Flexbox centralizado */ /* Usa Flexbox para distribuir e centralizar os itens de navegação */
+
+.nav ul {
+  list-style: none; /* Remove marcadores de lista */
+  margin: 16px 0 0 0; /* Espaço superior, zera demais margens */
+  padding: 0; /* Remove padding padrão */
+  display: flex; /* Ativa o contexto flexível */
+  gap: 8px; /* Espaçamento uniforme entre os itens */
+  justify-content: center; /* Centraliza os itens do menu horizontalmente */
+}
+.nav li { margin-right: 0; } /* Garante que não haja margem herdada à direita (redundância defensiva) */
+.nav a {
+  padding: 6px 12px; /* Área clicável confortável (alvo maior melhora usabilidade) */
+  border-radius: 6px; /* Cantos arredondados nos links do menu */
+  font-weight: 500; /* Peso médio para dar presença no menu */
+  transition: background-color 0.2s ease-in-out; /* Animação suave ao mudar o fundo no hover */
+}
+.nav a:hover {
+  background: #e9ecef; /* Fundo claro no hover para indicar interação */
+  text-decoration: none; /* Remove sublinhado que viria de a:hover global */
+}
+.nav a[aria-current="page"] {
+  background: var(--cor-destaque); /* Destaca a página atual com o roxo */
+  color: #fff; /* Texto branco para contraste adequado sobre o roxo */
+}
+
+/* 6) Títulos e parágrafos */ /* Hierarquia tipográfica clara e espaçamentos legíveis */
+
+h1 { font-size: 2.5rem; font-weight: 700; } /* Título principal grande e com peso forte */
+h2 { margin: 24px 0 12px; font-size: 1.8rem; } /* Título de seção com margens controladas e tamanho destacado */
+p { margin: 0 0 16px; } /* Parágrafos com espaçamento inferior padrão, sem margem superior */
+
+/* 7) Imagens */ /* Tornam-se responsivas e centralizadas */
+
+img {
+  max-width: 100%; /* Nunca ultrapassa a largura do contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+  display: block; /* Remove espaço extra de imagens inline e permite margin funcionar como esperado */
+  margin-left: auto; /* Centraliza horizontalmente em bloco */
+  margin-right: auto; /* Centraliza horizontalmente em bloco */
+}
+
+/* 8) Botões */ /* Estilo consistente para botões e o submit de formulários */
+
+.botao, button[type="submit"] {
+  display: inline-block; /* Permite paddings e dimensões previsíveis */
+  padding: 12px 24px; /* Área clicável confortável (acessibilidade motora) */
+  border: none; /* Sem borda padrão */
+  background: var(--cor-destaque); /* Fundo roxo para destacar a ação primária */
+  color: #fff; /* Texto branco para contraste */
+  border-radius: 6px; /* Cantos arredondados agradáveis */
+  font: inherit; /* Herda a fonte do body para consistência */
+  font-weight: 600; /* Peso um pouco mais forte para chamar atenção */
+  cursor: pointer; /* Cursor de mãozinha, indicando clique */
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out; /* Anima suavemente elevação e brilho */
+}
+.botao:hover, button[type="submit"]:hover {
+  filter: brightness(1.1); /* Leve aumento de brilho no hover (feedback visual) */
+  text-decoration: none; /* Garante ausência de sublinhado em botões-estilo-link */
+  transform: translateY(-2px); /* “Sobe” 2px para simular elevação ao passar o mouse */
+}
+
+/* 9) Tabela (serviços/produtos) */ /* Tabela limpa e legível, com linhas divisórias sutis */
+
+.tabela {
+  width: 100%; /* Ocupa toda a largura disponível do contêiner */
+  border-collapse: collapse; /* Une bordas para um visual mais minimalista */
+  margin: 16px 0 24px; /* Espaços antes e depois da tabela */
+  border: none; /* Remove borda externa da tabela */
+}
+.tabela th, .tabela td {
+  padding: 12px; /* Espaçamento interno adequado para leitura dos dados */
+  text-align: left; /* Alinhamento padrão à esquerda */
+  border: none; /* Remove bordas laterais/verticais */
+  border-bottom: 1px solid var(--cor-borda-sutil); /* Linha sutil entre linhas (zebra minimalista) */
+}
+.tabela thead th {
+  background: transparent; /* Cabeçalho sem fundo sólido (mantém leve) */
+  font-weight: 600; /* Peso maior para indicar cabeçalhos */
+  color: var(--cor-texto-secundario); /* Tom suave diferencia cabeçalhos do corpo */
+}
+
+/* 10) Formulários (contato) */ /* Campos consistentes, foco visível e agrupamento semântico */
+
+form { margin: 16px 0; } /* Respiro vertical em torno do formulário */
+fieldset { border: none; padding: 0; margin: 0; } /* Remove borda padrão do fieldset para visual limpo */
+legend { font-weight: 600; font-size: 1.2rem; margin-bottom: 16px; } /* Título do grupo de campos com destaque */
+.campo { margin: 16px 0; } /* Espaçamento entre campos para não ficarem “colados” */
+label { display: block; margin-bottom: 6px; font-weight: 500; } /* Rótulo acima do campo, com leve destaque */
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%; /* Campos ocupam toda a largura do contêiner */
+  padding: 12px; /* Respiro interno confortável para digitação */
+  border: 1px solid var(--cor-borda-sutil); /* Borda suave que delimita o campo */
+  border-radius: 6px; /* Cantos arredondados para coerência com o restante do design */
+  font: inherit; /* Herda a fonte do body (consistência) */
+  background: var(--cor-fundo-caixa); /* Fundo branco para contrastar com a página */
+  transition: border-color 0.2s, box-shadow 0.2s; /* Anima mudanças de foco de forma suave */
+}
+textarea { resize: vertical; min-height: 120px; } /* Permite redimensionar verticalmente e dá altura mínima confortável */
+
+input:focus, textarea:focus {
+  outline: none; /* Remove o contorno padrão do navegador (substituído por estilo customizado) */
+  border-color: var(--cor-destaque); /* Destaca a borda com o roxo no foco (feedback visual) */
+  box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.25); /* Anel de foco acessível com a cor roxa, sem agredir a leitura */
+}
+
+/* 11) Figure e Blockquote */ /* Estilos para mídia com legenda e citações destacadas */
+
+figure { margin: 0; } /* Zera margens para controle de espaçamento via utilitários/container */
+figcaption { color: var(--cor-texto-secundario); font-size: 0.9rem; margin-top: 8px; text-align: center; } /* Legenda menor, suave e centralizada */
+blockquote {
+  margin: 0; /* Remove margens padrão para encaixe mais preciso no layout */
+  padding-left: 16px; /* Recuo visual que indica citação */
+  border-left: 3px solid var(--cor-destaque); /* Barra vertical roxa enfatiza a citação */
+  font-style: italic; /* Itálico para diferenciar o tom da fala citada */
+}
