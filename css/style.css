@@ -1,5 +1,6 @@
-/* 1) Variáveis de Cor e Ajustes Gerais */ /* Seção: define tokens de cor reutilizáveis e um ajuste global de box sizing */
+/* 1) Variáveis de Cor e Ajustes Gerais */ 
 
+/* Seção: define tokens de cor reutilizáveis e um ajuste global de box sizing */
 :root { /* Seletor do elemento raiz (html); ideal para variáveis CSS globais */
   --cor-fundo: #f8f9fa; /* Cor de fundo clara e neutra para a página */
   --cor-texto: #212529; /* Cor principal do texto (alto contraste com o fundo) */
@@ -11,7 +12,8 @@
 
 * { box-sizing: border-box; } /* Inclui bordas e paddings no cálculo de largura/altura; facilita layouts consistentes */
 
-/* 2) Base tipográfica */ /* Define escala tipográfica e aparência geral do texto */
+/* 2) Base tipográfica */ 
+/* Define escala tipográfica e aparência geral do texto */
 
 html { font-size: 100%; } /* Base de 100% (tipicamente 16px) para rems previsíveis e acessíveis */
 body {
@@ -22,7 +24,8 @@ body {
   background: var(--cor-fundo); /* Aplica o fundo claro global */
 }
 
-/* 3) Utilitários */ /* Classes auxiliares para espaçamento, largura e cartões */
+/* 3) Utilitários */ 
+/* Classes auxiliares para espaçamento, largura e cartões */
 
 .container { width: 800px; max-width: 100%; padding: 0 16px; margin: 0 auto; } /* Container central de até 800px, com respiro lateral e centralização */
 .mt-1 { margin-top: 8px; } /* Utilitário: margem superior pequena (8px) */
@@ -36,7 +39,8 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra sutil para dar sensação de elevação (card) */
 }
 
-/* 4) Links e foco (acessibilidade) */ /* Melhora a visibilidade dos links e o estado de foco para teclado */
+/* 4) Links e foco (acessibilidade) */ 
+/* Melhora a visibilidade dos links e o estado de foco para teclado */
 
 a { color: var(--cor-destaque); text-decoration: none; font-weight: 500; } /* Links roxos, sem sublinhado por padrão, peso médio para ênfase */
 a:hover { text-decoration: underline; } /* Sublinha no hover para reforçar que é clicável */
@@ -46,7 +50,8 @@ a:focus {
   border-radius: 4px; /* Suaviza cantos do contorno */
 }
 
-/* 5) Cabeçalho, navegação, rodapé */ /* Estruturas de topo e base da página */
+/* 5) Cabeçalho, navegação, rodapé */ 
+/* Estruturas de topo e base da página */
 
 .header {
   background: transparent; /* Sem cor sólida de fundo (usa a cor da página) */
@@ -64,7 +69,8 @@ a:focus {
 }
 .slogan { margin: 0; color: var(--cor-texto-secundario); font-style: normal; font-weight: 400; } /* Slogan compacto, tom suave e peso normal */
 
-/* Menu com Flexbox centralizado */ /* Usa Flexbox para distribuir e centralizar os itens de navegação */
+/* Menu com Flexbox centralizado */ 
+/* Usa Flexbox para distribuir e centralizar os itens de navegação */
 
 .nav ul {
   list-style: none; /* Remove marcadores de lista */
@@ -90,13 +96,15 @@ a:focus {
   color: #fff; /* Texto branco para contraste adequado sobre o roxo */
 }
 
-/* 6) Títulos e parágrafos */ /* Hierarquia tipográfica clara e espaçamentos legíveis */
+/* 6) Títulos e parágrafos */ 
+/* Hierarquia tipográfica clara e espaçamentos legíveis */
 
 h1 { font-size: 2.5rem; font-weight: 700; } /* Título principal grande e com peso forte */
 h2 { margin: 24px 0 12px; font-size: 1.8rem; } /* Título de seção com margens controladas e tamanho destacado */
 p { margin: 0 0 16px; } /* Parágrafos com espaçamento inferior padrão, sem margem superior */
 
-/* 7) Imagens */ /* Tornam-se responsivas e centralizadas */
+/* 7) Imagens */ 
+/* Tornam-se responsivas e centralizadas */
 
 img {
   max-width: 100%; /* Nunca ultrapassa a largura do contêiner */
@@ -106,7 +114,8 @@ img {
   margin-right: auto; /* Centraliza horizontalmente em bloco */
 }
 
-/* 8) Botões */ /* Estilo consistente para botões e o submit de formulários */
+/* 8) Botões */ 
+/* Estilo consistente para botões e o submit de formulários */
 
 .botao, button[type="submit"] {
   display: inline-block; /* Permite paddings e dimensões previsíveis */
@@ -126,7 +135,8 @@ img {
   transform: translateY(-2px); /* “Sobe” 2px para simular elevação ao passar o mouse */
 }
 
-/* 9) Tabela (serviços/produtos) */ /* Tabela limpa e legível, com linhas divisórias sutis */
+/* 9) Tabela (serviços/produtos) */ 
+/* Tabela limpa e legível, com linhas divisórias sutis */
 
 .tabela {
   width: 100%; /* Ocupa toda a largura disponível do contêiner */
@@ -146,7 +156,8 @@ img {
   color: var(--cor-texto-secundario); /* Tom suave diferencia cabeçalhos do corpo */
 }
 
-/* 10) Formulários (contato) */ /* Campos consistentes, foco visível e agrupamento semântico */
+/* 10) Formulários (contato) */ 
+/* Campos consistentes, foco visível e agrupamento semântico */
 
 form { margin: 16px 0; } /* Respiro vertical em torno do formulário */
 fieldset { border: none; padding: 0; margin: 0; } /* Remove borda padrão do fieldset para visual limpo */
@@ -173,7 +184,8 @@ input:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.25); /* Anel de foco acessível com a cor roxa, sem agredir a leitura */
 }
 
-/* 11) Figure e Blockquote */ /* Estilos para mídia com legenda e citações destacadas */
+/* 11) Figure e Blockquote */ 
+/* Estilos para mídia com legenda e citações destacadas */
 
 figure { margin: 0; } /* Zera margens para controle de espaçamento via utilitários/container */
 figcaption { color: var(--cor-texto-secundario); font-size: 0.9rem; margin-top: 8px; text-align: center; } /* Legenda menor, suave e centralizada */
